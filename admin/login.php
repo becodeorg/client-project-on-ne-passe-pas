@@ -1,3 +1,14 @@
+<?php
+
+$host="localhost";
+$user="root";
+$password="user";
+$db="couvin";
+
+$data=mysqli_connect()
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,16 +19,20 @@
 </head>
 <body>
 <h1>Connection</h1>
-    <div class="user">
-    <label>Utilisateur</label>
-    <input type="text" name="username" required>    
-    </div>
-    <div class="mdp">
-    <label>Mot de passe</label>
-    <input type="password" name="password" required>
-    </div>
-    <div class="submit">
-    <input type="submit" value="login">
-    </div>
+
+    <form action="#" method="POST">
+        <div class="user">
+        <label>Utilisateur</label>
+        <input type="text" name="username" required>    
+        </div>
+        <div class="mdp">
+        <label>Mot de passe</label>
+        <input type="password" name="password" required>
+        </div>
+        <div class="submit">
+        <input type="submit" value="login">
+        </div>
+
+    </form>
 </body>
 </html>
