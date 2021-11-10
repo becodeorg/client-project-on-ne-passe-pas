@@ -1,10 +1,5 @@
 <?php
     include 'includes/Dbh.inc.php';
-    include 'includes/User.inc.php';
-
-session_start();
-
-
 
 ?>
 
@@ -21,6 +16,10 @@ session_start();
 
 <body>
     <h1>Connection</h1>
+    <?php
+        $object = new Dbh;
+        $object->connect();
+    ?>
 
     <form action="#" method="POST">
         <div class="user">

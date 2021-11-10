@@ -1,20 +1,31 @@
 <?php
 
-class Dbh {
-
+class Dbh
+{
     private $servername;
     private $username;
     private $password;
     private $dbname;
+    private $charset;
 
-    protected function connect () {
+    public function connect ()
+    {
         $this->servername = "localhost";
         $this->username = "root";
         $this->password = "user";
         $this->dbname = "couvin";
+        $this->charset = "utf8mb4";
 
-        $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
-        return $conn;
+        try {
+            $dsn = "mysql:host=".$this->servername.";dbname=".$this->dbname.";charset=".$this->charset;
+            $pdo = new PDO($dsn, $this->username, $this->password);
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            return $pdo;
+        } catch (\Exception $e) {
+            echo "La connexion a échoué : ".$e->getMessage();
+        }
+
     }
 
 }
