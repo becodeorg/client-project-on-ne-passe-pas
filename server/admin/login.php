@@ -1,6 +1,6 @@
 <?php
     include 'includes/Dbh.inc.php';
-
+session_start();
 ?>
 
 
@@ -21,7 +21,7 @@
         $object->connect();
     ?>
 
-    <form action="#" method="POST">
+    <form action="includes/LoginContr.php" method="POST">
         <div class="user">
             <label>Utilisateur</label>
             <input type="text" name="username" required>
