@@ -1,8 +1,6 @@
 <?php
-    include 'includes/Dbh.inc.php';
-
+include 'includes/autoLoader.inc.php';
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,26 +13,26 @@
 </head>
 
 <body>
-    <h1>Connection</h1>
-    <?php
-        $object = new Dbh;
-        $object->connect();
-    ?>
+<h1>Connection</h1>
+<?php
+$object = new Dbh;
+$object->connect();
+?>
 
-    <form action="#" method="POST">
-        <div class="user">
-            <label>Utilisateur</label>
-            <input type="text" name="username" required>
-        </div>
-        <div class="mdp">
-            <label>Mot de passe</label>
-            <input type="password" name="password" required>
-        </div>
-        <div class="submit">
-            <input type="submit" value="login">
-        </div>
+<form action="classes/LoginContr.php" method="POST">
+    <div class="user">
+        <label>Utilisateur</label>
+        <input type="text" name="username" required>
+    </div>
+    <div class="mdp">
+        <label>Mot de passe</label>
+        <input type="password" name="password" required>
+    </div>
+    <div class="submit">
+        <input type="submit" value="login">
+    </div>
 
-    </form>
+</form>
 </body>
 
 </html>

@@ -22,8 +22,9 @@ class Dbh
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             return $pdo;
-        } catch (\Exception $e) {
-            echo "La connexion a échoué : ".$e->getMessage();
+        } catch (PDOException $e) {
+            echo "La connexion a échoué : ".$e->getMessage() . "<br/>";
+            die();
         }
 
     }
