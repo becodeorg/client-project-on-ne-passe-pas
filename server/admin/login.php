@@ -14,12 +14,13 @@ include 'includes/autoLoader.inc.php';
 
 <body>
 <h1>Connection</h1>
+
 <?php
 $object = new Dbh;
 $object->connect();
 ?>
 
-<form action="classes/LoginContr.php" method="POST">
+<form action="#" method="POST">
     <div class="user">
         <label>Utilisateur</label>
         <input type="text" name="username" required>

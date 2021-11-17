@@ -2,24 +2,17 @@
 
 class Dbh
 {
-    private $servername;
-    private $username;
-    private $password;
-    private $dbname;
-    private $charset;
+    private $host = "localhost";
+    private $user = "root";
+    private $password = "user";
+    private $dbname = "appbdp";
 
     public function connect ()
     {
-        $this->servername = "localhost";
-        $this->username = "root";
-        $this->password = "user";
-        $this->dbname = "couvin";
-        $this->charset = "utf8mb4";
-
         try {
-            $dsn = "mysql:host=".$this->servername.";dbname=".$this->dbname.";charset=".$this->charset;
-            $pdo = new PDO($dsn, $this->username, $this->password);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $dsn = "mysql:host=".$this->host.";dbname=".$this->dbname;
+            $pdo = new PDO($dsn, $this->user, $this->password);
+            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
             return $pdo;
         } catch (PDOException $e) {
