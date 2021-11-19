@@ -16,8 +16,8 @@ include 'includes/autoLoader.inc.php';
 <h1>Connection</h1>
 
 <?php
-$object = new Dbh;
-$object->connect();
+$object = new Login();
+$object->getUser();
 ?>
 
 <form action="#" method="POST">

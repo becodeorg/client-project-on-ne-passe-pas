@@ -2,10 +2,10 @@
 
 class Dbh
 {
-    private $host = "localhost";
-    private $user = "root";
-    private $password = "user";
-    private $dbname = "appbdp";
+    private string $host = "localhost";
+    private string $user = "root";
+    private string $password = "user";
+    private string $dbname = "appbdp";
 
     public function connect ()
     {
