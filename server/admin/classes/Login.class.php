@@ -7,9 +7,9 @@ class Login extends Dbh
         $sql = "SELECT * FROM accounts";
         $stmt = $this->connect()->query($sql);
 
-        while($row = $stmt->fetch()) {
-            echo $row['username'] . '<br>';
-        }
+//        while($row = $stmt->fetch()) {
+//            echo $row['username'] . '<br>';
+//        }
 
     }
 
