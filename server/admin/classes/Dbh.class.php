@@ -7,7 +7,7 @@ class Dbh
     private string $password = "user";
     private string $dbname = "appbdp";
 
-    public function connect ()
+    public function connect()
     {
         try {
             $dsn = "mysql:host=".$this->host.";dbname=".$this->dbname;

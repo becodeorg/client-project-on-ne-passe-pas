@@ -2,7 +2,14 @@
 
 class Login extends Dbh
 {
-    public function getUser()
+
+    public function getUserStmt($username, $password)
+    {
+        $sql = "SELECT * FROM accounts WHERE username = ? AND password = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$username, $password]);
+
+        public function getUser()
     {
         $sql = "SELECT * FROM accounts";
         $stmt = $this->connect()->query($sql);
@@ -11,13 +18,7 @@ class Login extends Dbh
 //            echo $row['username'] . '<br>';
 //        }
 
-    }
-
-    public function getUserStmt($username, $password)
-    {
-        $sql = "SELECT * FROM accounts WHERE username = ? AND password = ?";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$username, $password]);
+    }sword]);
 
     }
 

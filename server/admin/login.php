@@ -1,5 +1,33 @@
 <?php
 include 'includes/autoLoader.inc.php';
+session_start();
+
+//$object = new Login();
+//$object->getUser();
+
+if(isset($_POST['login'])) {
+    if(empty($_POST['username']) || empty($_POST['password'])){
+        $message = "All fields are required";
+    } else {
+        $sql = "SELECT * FROM accounts WHERE username = :username AND password = :password";
+        $userRow = $this->connect()->prepare($sql);
+        $userRow ->execute(
+                array(
+                        'username' => $_POST['username'],
+                        'password' => $_POST['password']
+                )
+        );
+        $count = $userRow->rowCount();
+        if($count > 0) {
+            foreach($userRow as $result) {
+            $_SESSION['id'] = $result['id'];
+            header('location: adminHome.php');
+            }
+        } else {
+            $message = "Identifiants incorrects.";
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,11 +43,6 @@ include 'includes/autoLoader.inc.php';
 <body>
 <h1>Connection</h1>
 
-<?php
-$object = new Login();
-$object->getUser();
-?>
-
 <form action="#" method="POST">
     <div class="user">
         <label>Utilisateur</label>
@@ -30,7 +53,7 @@ $object->getUser();
         <input type="password" name="password" required>
     </div>
     <div class="submit">
-        <input type="submit" value="login">
+        <button type="submit" name="login">
     </div>
 
 </form>
