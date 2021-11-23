@@ -1,7 +1,12 @@
 <?php
 
+// Init session
 session_start();
-
+// Validate login
+if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
+    header('location: login.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +18,11 @@ session_start();
     <title>Panneau d'administration</title>
 </head>
 <body>
-    <h1>Panneau d'administration</h1>
-
-<a href="logout.php">Se déconnecter</a> 
+<h1>Panneau d'administration</h1>
+<h2>Dashboard <?php
+    echo $_SESSION['username']; ?></h2>
+<p>Welcome to the dashboard <?php
+    echo $_SESSION['username']; ?></p>
+<p><a href="logout.php">Logout</a></p>
 </body>
 </html>
