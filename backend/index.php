@@ -11,13 +11,20 @@
     <title>Connexion</title>
 </head>
 <body>
-<header id="header"></header>
+<header id="header">
+    Console Administration
+</header>
 
 <main>
-
+<form>
+    <label> 
+        <input type="text" name="login">
+    </label>
+</form>
 </main>
 
-<footer id="footer"></footer>
-<script src="./assets/js/include.js"></script>
+<footer id="footer">
+
+</footer>
 </body>
 </html>
