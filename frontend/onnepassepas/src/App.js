@@ -1,9 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
+import Accueil from './Routes/Accueil/Accueil';
 
 function App() {
   return (
-    <h1>On ne passe pas !</h1>
+    <Accueil />
   );
 }
 
