@@ -120,18 +120,75 @@ body#admin main .introduction textarea {
 body#admin main .introduction h3 {
   padding: 0.8rem;
 }
+body#admin main .introduction .send {
+  font-size: 2rem;
+}
 body#admin main .introduction .question {
   display: flex;
   flex-flow: row wrap;
 }
 body#admin main .introduction .question .questionInput {
   width: 100%;
+  margin-bottom: 0.8rem;
 }
 body#admin main .introduction .question .reponse1 {
-  border: solid 1px green;
+  border: solid 2px green;
+  width: 23%;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
 }
 body#admin main .introduction .question .reponse2, body#admin main .introduction .question .reponse3, body#admin main .introduction .question .reponse4 {
-  border: solid 1px red;
+  border: solid 2px red;
+  width: 23%;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+}
+body#admin main .slide h2 {
+  font-weight: bold;
+  padding: 1rem;
+}
+body#admin main .slide #changeImageSlide {
+  text-align: center;
+  margin: 0 auto;
+  width: 30%;
+  background-color: gray;
+  padding: 1rem;
+  cursor: pointer;
+  color: white;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  border-radius: 20%;
+  margin-top: 3rem;
+}
+body#admin main .slide textarea {
+  width: 100%;
+  height: 7rem;
+}
+body#admin main .slide h3 {
+  padding: 0.8rem;
+}
+body#admin main .slide .send {
+  font-size: 2rem;
+}
+body#admin main .slide .question {
+  display: flex;
+  flex-flow: row wrap;
+}
+body#admin main .slide .question .questionInput {
+  width: 100%;
+  margin-bottom: 0.8rem;
+}
+body#admin main .slide .question .reponse1 {
+  border: solid 2px green;
+  width: 23%;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+}
+body#admin main .slide .question .reponse2, body#admin main .slide .question .reponse3, body#admin main .slide .question .reponse4 {
+  border: solid 2px red;
+  width: 23%;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
 }
 body#admin main .diapo {
   display: flex;
