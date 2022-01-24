@@ -131,24 +131,24 @@ if (isset($_GET['page']) or isset($_POST['page'])) {
         question_en, reponse1_en, reponse2_en, reponse3_en, reponse4_en, question_nl, reponse1_nl, reponse2_nl, reponse3_nl, reponse4_nl FROM slide a, image i WHERE a.image_id=i.id AND a.id='$id_slide'");
         $row = $res->fetch_assoc();
         $url = $row ['url'];
-        $text_fr = utf8_encode($row['text_fr']);
-        $text_en = utf8_encode($row['text_en']);
-        $text_nl = utf8_encode($row['text_nl']);
-        $quest_fr = utf8_encode($row['question_fr']);
-        $rep1_fr = utf8_encode($row['reponse1_fr']);
-        $rep2_fr = utf8_encode($row['reponse2_fr']);
-        $rep3_fr = utf8_encode($row['reponse3_fr']);
-        $rep4_fr = utf8_encode($row['reponse4_fr']);
-        $quest_en = utf8_encode($row['question_en']);
-        $rep1_en = utf8_encode($row['reponse1_en']);
-        $rep2_en = utf8_encode($row['reponse2_en']);
-        $rep3_en = utf8_encode($row['reponse3_en']);
-        $rep4_en = utf8_encode($row['reponse4_en']);
-        $quest_nl = utf8_encode($row['question_nl']);
-        $rep1_nl = utf8_encode($row['reponse1_nl']);
-        $rep2_nl = utf8_encode($row['reponse2_nl']);
-        $rep3_nl = utf8_encode($row['reponse3_nl']);
-        $rep4_nl = utf8_encode($row['reponse4_nl']);
+        $text_fr = $row['text_fr'];
+        $text_en = $row['text_en'];
+        $text_nl = $row['text_nl'];
+        $quest_fr = $row['question_fr'];
+        $rep1_fr = $row['reponse1_fr'];
+        $rep2_fr = $row['reponse2_fr'];
+        $rep3_fr = $row['reponse3_fr'];
+        $rep4_fr = $row['reponse4_fr'];
+        $quest_en = $row['question_en'];
+        $rep1_en = $row['reponse1_en'];
+        $rep2_en = $row['reponse2_en'];
+        $rep3_en = $row['reponse3_en'];
+        $rep4_en = $row['reponse4_en'];
+        $quest_nl = $row['question_nl'];
+        $rep1_nl = $row['reponse1_nl'];
+        $rep2_nl = $row['reponse2_nl'];
+        $rep3_nl = $row['reponse3_nl'];
+        $rep4_nl = $row['reponse4_nl'];
     }
 
     if ($page == "image") {
