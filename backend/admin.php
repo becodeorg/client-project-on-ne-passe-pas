@@ -33,6 +33,12 @@ $conn = OpenCon();
 
 if (isset($_GET['page']) or isset($_POST['page'])) {
     if ($page == "accueil") {
+
+        if (isset($_GET['update_image_accueil']) && isset($_GET['id'])) {
+            $idImageAccueil=$_GET['id'];
+            $res = $conn->query("UPDATE accueil SET image_id='$idImageAccueil'");
+        }
+
         $res = $conn->query("SELECT i.url, i.name FROM accueil a, image i WHERE a.image_id=i.id");
         $row = $res->fetch_assoc();
         $url = $row ['url'];
@@ -98,9 +104,9 @@ if (isset($_GET['page']) or isset($_POST['page'])) {
     }
 
     if ($page=="s1" or $page=="s2" or $page=="s3" or $page=="s4" or $page=="s5" or $page=="s6" or $page=="s7" or $page=="s8" or $page=="s9" or $page=="s10" or $page=="s11") {
+        $id_slide=substr($page, 1);
 
         if (isset($_POST['page'])) {
-            $id_slide=substr($page, 1);
             $text_fr = filter_var ($_POST['text_fr'], FILTER_SANITIZE_STRING);
             $text_en = filter_var ($_POST['text_en'], FILTER_SANITIZE_STRING);
             $text_nl = filter_var ($_POST['text_nl'], FILTER_SANITIZE_STRING);
@@ -126,7 +132,11 @@ if (isset($_GET['page']) or isset($_POST['page'])) {
                  reponse3_nl='$rep3_nl', reponse4_nl='$rep4_nl' WHERE id='$id_slide'");
         }
 
-        $id_slide=substr($page, 1);
+        if (isset($_GET['update_image_slide']) and isset($_GET['id'])) {
+            $idImageSlide=$_GET['id'];
+            $res = $conn->query("UPDATE slide SET image_id='$idImageSlide' WHERE id='$id_slide'");
+        }
+
         $res = $conn->query("SELECT i.url, text_fr, text_en, text_nl, question_fr, reponse1_fr, reponse2_fr, reponse3_fr, reponse4_fr,
         question_en, reponse1_en, reponse2_en, reponse3_en, reponse4_en, question_nl, reponse1_nl, reponse2_nl, reponse3_nl, reponse4_nl FROM slide a, image i WHERE a.image_id=i.id AND a.id='$id_slide'");
         $row = $res->fetch_assoc();
@@ -271,7 +281,7 @@ if (isset($page)) {
             <div class="slide">
                 <h2>Voici l'image que vous avez choisi pour le <?php echo $titre; ?> :</h2>
                 <img src="./assets/image/<?php echo $url; ?>" id="imageSlide"/>
-                <div id="changeImageSlide">
+                <div class="changeImageSlide" id="<?php echo $page; ?>">
                     Choisir une autre image
                 </div>
                 <h2>Texte d'accompagnement en français :</h2>
@@ -335,6 +345,14 @@ if (isset($page)) {
 </main>
 
 <footer id="footer"></footer>
+<script src="./assets/js/admin.js"></script>
+
+<div id="modale" class="modale">
+    <div id="modale-content">
+        <div id="showImage"> </div>
+        <div id="closeModale" onclick="document.getElementById('modale').style.display='none'">Annuler</div>
+    </div>
+</div>
 
 </body>
 

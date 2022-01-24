@@ -147,7 +147,7 @@ body#admin main .slide h2 {
   font-weight: bold;
   padding: 1rem;
 }
-body#admin main .slide #changeImageSlide {
+body#admin main .slide .changeImageSlide {
   text-align: center;
   margin: 0 auto;
   width: 30%;
@@ -220,6 +220,73 @@ body#admin main .diapo .imageDiapo .imageDiapoImage .imageDiapoImageportrait {
 
 .center {
   text-align: center;
+}
+
+.modale {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 0rem;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modale #modale-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 1rem;
+  border: 10px solid #888;
+  width: 80%;
+  height: 60%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.modale #modale-content #showImage {
+  min-height: 92%;
+  max-height: 92%;
+  overflow: auto;
+}
+.modale #modale-content #showImage .diapo {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  justify-content: center;
+}
+.modale #modale-content #showImage .diapo .imageDiapo {
+  width: 12rem;
+  height: 8rem;
+  border: solid 1px black;
+  margin: 2rem;
+  cursor: pointer;
+}
+.modale #modale-content #showImage .diapo .imageDiapo .imageDiapoImage {
+  display: flex;
+  justify-content: center;
+}
+.modale #modale-content #showImage .diapo .imageDiapo .imageDiapoImage .imageDiapoImagepaysage {
+  height: 5rem;
+  width: 10rem;
+}
+.modale #modale-content #showImage .diapo .imageDiapo .imageDiapoImage .imageDiapoImagecarre {
+  height: 5rem;
+  width: 5rem;
+}
+.modale #modale-content #showImage .diapo .imageDiapo .imageDiapoImage .imageDiapoImageportrait {
+  height: 5rem;
+  width: 3rem;
+}
+.modale #modale-content #closeModale {
+  text-align: center;
+  width: 4rem;
+  background-color: #888888;
+  padding: 0.8rem;
+  cursor: pointer;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
