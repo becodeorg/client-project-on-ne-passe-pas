@@ -1,0 +1,173 @@
+body#index {
+  header {
+    margin:0 auto;
+    width:60%;
+    text-align: center;
+    & img {
+      width:6rem;
+      height:6rem;
+    }
+  }
+  main {
+    padding-top: 3rem;
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+    div.log {
+      padding-top: 1rem;
+      text-align: center;
+    }
+    div#logIn{
+      margin-top: 4rem;
+      text-align: center;
+      span {
+        background-color: gray;
+        padding:1rem;
+        cursor: pointer;
+        color:white;
+        font-weight: bolder;
+        font-size: 1.5rem;
+        border-radius: 20%;
+      }
+    }
+  }
+}
+
+body#admin {
+  display: flex;
+  nav {
+    margin: 1%;
+    background-color: aliceblue;
+    width: 20%;
+    text-align: center;
+    & img {
+      width: 6rem;
+      height: 6rem;
+      padding-bottom: 1rem;
+    }
+    div {
+      padding-bottom: 1rem;
+      cursor:pointer;
+    }
+    a {
+      text-decoration: none;
+      color:black;
+      font-weight: bold;
+    }
+    .hr {
+      padding-bottom: 0;
+      background-color: black;
+      width:100%;
+      height:1px;
+      cursor: none;
+      margin-bottom: 1rem;
+    }
+  }
+  main {
+    margin: 1%;
+    width:78%;
+    background-color: aliceblue;
+    h1 {
+      text-align: center;
+      text-decoration: underline;
+      font-weight: bold;
+      padding: 1rem;
+    }
+
+    .accueil {
+      display: flex;
+      align-items: center;
+      flex-flow: column wrap;
+      h2 {
+        font-weight: bold;
+        padding: 1rem;
+      }
+      #imageAccueil {
+        width: 12rem;
+        height: 16rem;
+      }
+      #changeImageAccueil {
+        background-color: gray;
+        padding:1rem;
+        cursor: pointer;
+        color:white;
+        font-weight: bolder;
+        font-size: 1.5rem;
+        border-radius: 20%;
+        margin-top: 3rem;
+      }
+    }
+
+    .introduction {
+      h2 {
+        font-weight: bold;
+        padding: 1rem;
+      }
+      #changeImageIntro {
+        text-align: center;
+        margin:0 auto;
+        width:30%;
+        background-color: gray;
+        padding:1rem;
+        cursor: pointer;
+        color:white;
+        font-weight: bolder;
+        font-size: 1.5rem;
+        border-radius: 20%;
+        margin-top: 3rem;
+      }
+      textarea {
+        width:100%;
+        height:7rem;
+      }
+      h3 {
+        padding: 0.8rem;
+      }
+      .question {
+        display: flex;
+        flex-flow: row wrap;
+        .questionInput {
+          width:100%;
+        }
+        .reponse1 {
+          border:solid 1px green;
+        }
+        .reponse2, .reponse3, .reponse4 {
+          border:solid 1px red;
+        }
+      }
+    }
+
+    .diapo {
+      display: flex;
+      flex-flow: row wrap;
+      width:100%;
+      .imageDiapo {
+        width: 12rem;
+        height: 8rem;
+        border: solid 1px black;
+        margin: 2rem;
+        .imageDiapoImage {
+          display: flex;
+          justify-content: center;
+          .imageDiapoImagepaysage {
+            height: 5rem;
+            width: 10rem;
+          }
+          .imageDiapoImagecarre {
+            height: 5rem;
+            width: 5rem;
+          }
+          .imageDiapoImageportrait {
+            height: 5rem;
+            width: 3rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.center {
+  text-align:center;
+}
