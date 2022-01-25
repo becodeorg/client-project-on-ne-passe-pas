@@ -137,10 +137,11 @@ if (isset($_GET['page']) or isset($_POST['page'])) {
             $res = $conn->query("UPDATE slide SET image_id='$idImageSlide' WHERE id='$id_slide'");
         }
 
-        $res = $conn->query("SELECT i.url, text_fr, text_en, text_nl, question_fr, reponse1_fr, reponse2_fr, reponse3_fr, reponse4_fr,
+        $res = $conn->query("SELECT i.url, i.disposition, text_fr, text_en, text_nl, question_fr, reponse1_fr, reponse2_fr, reponse3_fr, reponse4_fr,
         question_en, reponse1_en, reponse2_en, reponse3_en, reponse4_en, question_nl, reponse1_nl, reponse2_nl, reponse3_nl, reponse4_nl FROM slide a, image i WHERE a.image_id=i.id AND a.id='$id_slide'");
         $row = $res->fetch_assoc();
         $url = $row ['url'];
+        $disposition = $row ['disposition'];
         $text_fr = $row['text_fr'];
         $text_en = $row['text_en'];
         $text_nl = $row['text_nl'];
@@ -280,7 +281,7 @@ if (isset($page)) {
             <input type="hidden" name="id_slide" value="$id_slide">
             <div class="slide">
                 <h2>Voici l'image que vous avez choisi pour le <?php echo $titre; ?> :</h2>
-                <img src="./assets/image/<?php echo $url; ?>" id="imageSlide"/>
+                <div class="center"> <img src="./assets/image/<?php echo $url; ?>" id="imageSlide" class="imageSlideDisposition<?php echo $disposition; ?>"/></div>
                 <div class="changeImageSlide" id="<?php echo $page; ?>">
                     Choisir une autre image
                 </div>

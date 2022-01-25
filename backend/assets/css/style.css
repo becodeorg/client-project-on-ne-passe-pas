@@ -147,6 +147,18 @@ body#admin main .slide h2 {
   font-weight: bold;
   padding: 1rem;
 }
+body#admin main .slide .imageSlideDispositionportrait {
+  height: 20rem;
+  width: 15rem;
+}
+body#admin main .slide .imageSlideDispositionpaysage {
+  height: 15rem;
+  width: 20rem;
+}
+body#admin main .slide .imageSlideDispositioncarre {
+  height: 20rem;
+  width: 20rem;
+}
 body#admin main .slide .changeImageSlide {
   text-align: center;
   margin: 0 auto;
