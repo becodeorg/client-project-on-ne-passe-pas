@@ -26,9 +26,9 @@ const Accueil = () => {
 
     const bgStyle = {
         backgroundImage: `url(${img})`,
-        backgroundSize: 'auto 100%',
+        backgroundSize: '100% 100%',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'left top',
+        backgroundPosition: 'center center',
         minHeight: '100%'
     }
 
