@@ -1,7 +1,7 @@
 $bg-color-base: rgb(229,215,191);
 $bg-color-fondu: rgba(255,255,255,0.6);
-$round-color-base: rgb(112,132,104);
-$text-color-base: rgb(90,89,87);
+$rounded-border-color: rgb(112,132,104);
+$text-color-base: rgb(77, 76, 74);
 $box-shadow-base: -1px 6px 11px -4px rgba(0,0,0,0.75);
 
 html {
@@ -19,7 +19,7 @@ html {
 
         .header-acc {
 
-            margin-top: 1rem;
+            padding-top: 2rem;
             margin-right: 1rem;
 
             .lang {
@@ -37,6 +37,26 @@ html {
             }
         }
 
+        .header-slides {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            background-color: $rounded-border-color;
+            border-radius: 0% 0% 50%;
+            height: 6rem;
+            width: 15rem;
+            margin-top: -3rem;
+
+            .flags-logo {
+                max-width: 35px;
+                height: auto;
+                margin-top: 3rem;
+                margin-left: 1rem;
+            }
+        }
+
+        
+
         .main-acc {
 
             display: flex;
@@ -53,13 +73,14 @@ html {
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+                gap: 1rem;
                 width: 100%;
                 height: 10rem;
                 background-color: $bg-color-fondu;
                 box-shadow: $box-shadow-base;
 
                 .flags-logo {
-                    max-width: 35px;
+                    max-width: 50px;
                     height: auto;
                     background-color: transparent;
                 }
@@ -76,6 +97,49 @@ html {
                 height: 8rem;
                 top: 10rem;
                 margin-bottom: 5rem;
+            }
+        }
+
+        .main-slides {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100%;
+            width: 100%;
+
+            .swiper {
+
+                background-color: gray;
+                box-shadow: $box-shadow-base;
+                height: 10rem;
+                margin-top: 1rem;
+            }
+
+            .textzone-slides {
+
+                height: 40rem;
+            }
+        }
+
+        .footer-slides {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            position: fixed;
+            background-color: $rounded-border-color;
+            border-radius: 50% 0% 0%;
+            height: 6rem;
+            width: 15rem;
+            bottom: -3rem;
+            right: 0;
+
+            .flags-logo {
+                max-width: 35px;
+                height: auto;
+                margin-bottom: 3rem;
+                margin-right: 1rem;
             }
         }
 

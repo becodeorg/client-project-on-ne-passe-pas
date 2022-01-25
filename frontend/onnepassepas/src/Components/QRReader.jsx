@@ -30,7 +30,8 @@ class QrContainer extends Component {
         const textStyle = {
             fontSize: '1rem',
             textAlign: 'center',
-            marginTop: '6rem'
+            marginTop: '6rem',
+            color: 'white'
         }
 
         return (

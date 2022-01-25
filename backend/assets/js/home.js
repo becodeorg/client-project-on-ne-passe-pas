@@ -6,7 +6,7 @@ document.getElementById("boutonLogIn").addEventListener("click", () => {
             .then(response => response.text())
             .then(repos => {
                 if (repos==="notok") alerte("Impossible de se connecter : le login ne correspond pas au mot de passe.");
-                if (repos==="okgo") window.location.href="admin.php";
+                if (repos==="okgo") window.location.href="admin.php?page=accueil";
             })
             .catch(err => console.log(err))
 })

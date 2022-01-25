@@ -7,13 +7,13 @@ html body {
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  color: #5a5957;
+  color: #4d4c4a;
   background-color: #e5d7bf;
   height: 100%;
 }
 
 html body .header-acc {
-  margin-top: 1rem;
+  padding-top: 2rem;
   margin-right: 1rem;
 }
 
@@ -37,6 +37,30 @@ html body .header-acc .lang {
 html body .header-acc .lang .flags-logo {
   max-width: 35px;
   height: 20px;
+}
+
+html body .header-slides {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #708468;
+  border-radius: 0% 0% 50%;
+  height: 6rem;
+  width: 15rem;
+  margin-top: -3rem;
+}
+
+html body .header-slides .flags-logo {
+  max-width: 35px;
+  height: auto;
+  margin-top: 3rem;
+  margin-left: 1rem;
 }
 
 html body .main-acc {
@@ -73,6 +97,7 @@ html body .main-acc .desc-app {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  gap: 1rem;
   width: 100%;
   height: 10rem;
   background-color: rgba(255, 255, 255, 0.6);
@@ -81,7 +106,7 @@ html body .main-acc .desc-app {
 }
 
 html body .main-acc .desc-app .flags-logo {
-  max-width: 35px;
+  max-width: 50px;
   height: auto;
   background-color: transparent;
 }
@@ -105,4 +130,60 @@ html body .main-acc .QR-zone {
   height: 8rem;
   top: 10rem;
   margin-bottom: 5rem;
+}
+
+html body .main-slides {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 100%;
+  width: 100%;
+}
+
+html body .main-slides .swiper {
+  background-color: gray;
+  -webkit-box-shadow: -1px 6px 11px -4px rgba(0, 0, 0, 0.75);
+          box-shadow: -1px 6px 11px -4px rgba(0, 0, 0, 0.75);
+  height: 10rem;
+  margin-top: 1rem;
+}
+
+html body .main-slides .textzone-slides {
+  height: 40rem;
+}
+
+html body .footer-slides {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  background-color: #708468;
+  border-radius: 50% 0% 0%;
+  height: 6rem;
+  width: 15rem;
+  bottom: -3rem;
+  right: 0;
+}
+
+html body .footer-slides .flags-logo {
+  max-width: 35px;
+  height: auto;
+  margin-bottom: 3rem;
+  margin-right: 1rem;
 }

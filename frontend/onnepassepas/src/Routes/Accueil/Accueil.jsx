@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import HeaderAccueil from "../../Components/HeaderAccueil";
 import MainAccueil from "../../Components/MainAccueil";
@@ -26,16 +27,17 @@ const Accueil = () => {
 
     const bgStyle = {
         backgroundImage: `url(${img})`,
-        backgroundSize: '100% 100%',
+        backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center center',
-        minHeight: '100%'
+        backgroundPosition: 'center',
+        height: '100%'
     }
 
     return (
         <div className="bg-image" style={bgStyle}>
             <HeaderAccueil />
             <MainAccueil />
+            <Link to="/IntroOne" className='link'>Suite</Link>
         </div>
     )
 }
