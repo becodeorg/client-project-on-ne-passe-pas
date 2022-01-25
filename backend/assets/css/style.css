@@ -353,5 +353,38 @@ body#admin main .diapo .imageDiapo .imageAction .imageActionButtonDelete {
   cursor: pointer;
   color: white;
 }
+.modale #modale-content .modalUpdateImage {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+.modale #modale-content .modalUpdateImage .imageDispopaysage {
+  height: 10rem;
+  width: 20rem;
+}
+.modale #modale-content .modalUpdateImage .imageDispocarre {
+  height: 10rem;
+  width: 10rem;
+}
+.modale #modale-content .modalUpdateImage .imageDispoportrait {
+  height: 10rem;
+  width: 6rem;
+}
+.modale #modale-content .modalUpdateImage input {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.modale #modale-content .modalUpdateImage img {
+  margin-top: 1.5rem;
+}
+.modale #modale-content .modalUpdateImage #updateImageButton {
+  margin-top: 1.5rem;
+  text-align: center;
+  width: 8rem;
+  background-color: #888888;
+  padding: 0.8rem;
+  cursor: pointer;
+  color: white;
+}
 
 /*# sourceMappingURL=style.css.map */

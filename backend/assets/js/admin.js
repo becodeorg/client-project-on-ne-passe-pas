@@ -34,3 +34,21 @@ function updateImageSlide(slide, id) {
 function updateImageIntro(slot, id) {
     window.location.href="admin.php?page=intro&update_image_intro=1&slot=" + slot + "&id=" + id;
 }
+
+function updateImage() {
+    let e = document.getElementById("disposition");
+    let form = {
+        name : document.getElementById("name").value,
+        disposition : e.options[e.selectedIndex].value,
+        id : document.getElementById('id').value
+    }
+    fetch("./assets/php/update_image_now.php", {cache: "reload", method: "POST", body: JSON.stringify(form)})
+        .then(response => response.text())
+        .then(saveData => {
+            console.log(saveData);
+            document.getElementById("modale").style.display="none";
+            load("./assets/php/image_update.php?id=" + saveData, "showImage");
+            document.getElementById("modale").style.display="flex";
+        })
+        .catch(err => console.log(err))
+}
