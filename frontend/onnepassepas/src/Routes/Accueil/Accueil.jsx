@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import HeaderAccueil from "../../Components/HeaderAccueil";
 import MainAccueil from "../../Components/MainAccueil";
+import '../../App.css';
 
 const Accueil = () => {
 
@@ -37,7 +38,7 @@ const Accueil = () => {
         <div className="bg-image" style={bgStyle}>
             <HeaderAccueil />
             <MainAccueil />
-            <Link to="/IntroOne" className='link'>Suite</Link>
+            <Link to="/Introduction" className='link'>Suite</Link>
         </div>
     )
 }

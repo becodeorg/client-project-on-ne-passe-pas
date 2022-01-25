@@ -1,10 +1,9 @@
-import axios from "axios";
 import FooterSlides from "../../Components/FooterSlide";
 import HeaderSlides from "../../Components/HeaderSlides";
 import MainSlide from "../../Components/MainSlide";
 
 
-const IntroOne = () => {
+const Introduction = () => {
 
 
 
@@ -17,4 +16,4 @@ const IntroOne = () => {
     )
 }
 
-export default IntroOne;
+export default Introduction;

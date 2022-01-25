@@ -104,6 +104,7 @@ html {
 
             display: flex;
             flex-direction: row;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: flex-start;
             height: 100%;
@@ -111,15 +112,48 @@ html {
 
             .swiper {
 
-                background-color: gray;
                 box-shadow: $box-shadow-base;
-                height: 10rem;
-                margin-top: 1rem;
+                height: 12rem;
+                margin-top: 0.5rem;
+                text-align: center;
+
+                .swiper-image {
+                    width: 100%;
+                    max-height: auto;
+                }
             }
 
             .textzone-slides {
+                height: 18rem;
+                width: 90%;
+                background-color: $bg-color-fondu;
+                box-shadow: $box-shadow-base;
+                margin-bottom: 7rem;
 
-                height: 40rem;
+                .text-slides {
+                    text-align: justify;
+                    padding: 0.5rem 0.5rem 0 0.5rem;
+                    font-size: 0.9rem;
+                }
+            }
+
+            .next-slides {
+                margin-top: -7rem;
+            }
+
+            .quizz-slides {
+                
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 1rem;
+                align-items: center;
+                justify-content: flex-start;
+                margin: 0.5rem;
+                text-align: justify;
+                h3 {
+                    font-size: 1.5rem;
+                }
             }
         }
 

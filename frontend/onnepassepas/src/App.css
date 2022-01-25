@@ -140,6 +140,8 @@ html body .main-slides {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -151,15 +153,60 @@ html body .main-slides {
 }
 
 html body .main-slides .swiper {
-  background-color: gray;
   -webkit-box-shadow: -1px 6px 11px -4px rgba(0, 0, 0, 0.75);
           box-shadow: -1px 6px 11px -4px rgba(0, 0, 0, 0.75);
-  height: 10rem;
-  margin-top: 1rem;
+  height: 12rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+html body .main-slides .swiper .swiper-image {
+  width: 100%;
+  max-height: auto;
 }
 
 html body .main-slides .textzone-slides {
-  height: 40rem;
+  height: 18rem;
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.6);
+  -webkit-box-shadow: -1px 6px 11px -4px rgba(0, 0, 0, 0.75);
+          box-shadow: -1px 6px 11px -4px rgba(0, 0, 0, 0.75);
+  margin-bottom: 7rem;
+}
+
+html body .main-slides .textzone-slides .text-slides {
+  text-align: justify;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+html body .main-slides .next-slides {
+  margin-top: -7rem;
+}
+
+html body .main-slides .quizz-slides {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 0.5rem;
+  text-align: justify;
+}
+
+html body .main-slides .quizz-slides h3 {
+  font-size: 1.5rem;
 }
 
 html body .footer-slides {
