@@ -103,18 +103,53 @@ body#admin {
         font-weight: bold;
         padding: 1rem;
       }
-      #changeImageIntro {
-        text-align: center;
-        margin:0 auto;
-        width:30%;
-        background-color: gray;
-        padding:1rem;
-        cursor: pointer;
-        color:white;
-        font-weight: bolder;
-        font-size: 1.5rem;
-        border-radius: 20%;
-        margin-top: 3rem;
+      .containerImageIntro {
+        width:100%;
+        border:solid 1px black;
+        display: flex;
+        overflow: auto;
+        .containerOneImageIntro {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-flow: column wrap;
+          width:15rem;
+          height:24rem;
+          margin-left: 0.5rem;
+          margin-right: 0.5rem;
+          .containerImageIntroHeight {
+            width:15rem;
+            height:15rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .imageIntroDispositionpaysage {
+            height: 10rem;
+            width: 15rem;
+          }
+          .imageIntroDispositioncarre {
+            height: 10rem;
+            width: 10rem;
+          }
+          .imageIntroDispositionportrait {
+            height: 15rem;
+            width: 10rem;
+          }
+          .changeImageIntro {
+            text-align: center;
+            margin: 0 auto;
+            width: 40%;
+            background-color: gray;
+            padding: 1rem;
+            cursor: pointer;
+            color: white;
+            font-weight: bolder;
+            font-size: 1rem;
+            border-radius: 20%;
+            margin-top: 1rem;
+          }
+        }
       }
       textarea {
         width:100%;
@@ -159,7 +194,7 @@ body#admin {
       }
       .imageSlideDispositionpaysage{
         height:15rem;
-        width:20rem;
+        width:21rem;
       }
       .imageSlideDispositioncarre{
         height:20rem;
@@ -216,7 +251,7 @@ body#admin {
       width:100%;
       .imageDiapo {
         width: 12rem;
-        height: 8rem;
+        height: 10rem;
         border: solid 1px black;
         margin: 2rem;
         .imageDiapoImage {
@@ -233,6 +268,24 @@ body#admin {
           .imageDiapoImageportrait {
             height: 5rem;
             width: 3rem;
+          }
+        }
+        .imageAction {
+          width:100%;
+          display: flex;
+          justify-content: space-around;
+          margin-top: 0.6rem;
+          .imageActionButtonUpdate {
+            background-color: #aaaaaa;
+            border: solid 1px black;
+            padding:0.3rem;
+            cursor: pointer;
+          }
+          .imageActionButtonDelete {
+            background-color: #aaaaaa;
+            border: solid 1px black;
+            padding:0.3rem;
+            cursor: pointer;
           }
         }
       }
@@ -307,6 +360,39 @@ body#admin {
       padding: 0.8rem;
       cursor: pointer;
       color:white;
+    }
+    .modalUpdateImage {
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center;
+      .imageDispopaysage {
+        height: 10rem;
+        width: 20rem;
+      }
+      .imageDispocarre {
+        height: 10rem;
+        width: 10rem;
+      }
+      .imageDispoportrait {
+        height: 10rem;
+        width: 6rem;
+      }
+      input {
+        margin-top:0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      img {
+        margin-top: 1.5rem;
+      }
+      #updateImageButton {
+        margin-top: 1.5rem;
+        text-align: center;
+        width:8rem;
+        background-color: #888888;
+        padding: 0.8rem;
+        cursor: pointer;
+        color:white;
+      }
     }
   }
 }

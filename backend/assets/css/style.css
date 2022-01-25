@@ -100,18 +100,53 @@ body#admin main .introduction h2 {
   font-weight: bold;
   padding: 1rem;
 }
-body#admin main .introduction #changeImageIntro {
+body#admin main .introduction .containerImageIntro {
+  width: 100%;
+  border: solid 1px black;
+  display: flex;
+  overflow: auto;
+}
+body#admin main .introduction .containerImageIntro .containerOneImageIntro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  width: 15rem;
+  height: 24rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+body#admin main .introduction .containerImageIntro .containerOneImageIntro .containerImageIntroHeight {
+  width: 15rem;
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body#admin main .introduction .containerImageIntro .containerOneImageIntro .imageIntroDispositionpaysage {
+  height: 10rem;
+  width: 15rem;
+}
+body#admin main .introduction .containerImageIntro .containerOneImageIntro .imageIntroDispositioncarre {
+  height: 10rem;
+  width: 10rem;
+}
+body#admin main .introduction .containerImageIntro .containerOneImageIntro .imageIntroDispositionportrait {
+  height: 15rem;
+  width: 10rem;
+}
+body#admin main .introduction .containerImageIntro .containerOneImageIntro .changeImageIntro {
   text-align: center;
   margin: 0 auto;
-  width: 30%;
+  width: 40%;
   background-color: gray;
   padding: 1rem;
   cursor: pointer;
   color: white;
   font-weight: bolder;
-  font-size: 1.5rem;
+  font-size: 1rem;
   border-radius: 20%;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 body#admin main .introduction textarea {
   width: 100%;
@@ -153,7 +188,7 @@ body#admin main .slide .imageSlideDispositionportrait {
 }
 body#admin main .slide .imageSlideDispositionpaysage {
   height: 15rem;
-  width: 20rem;
+  width: 21rem;
 }
 body#admin main .slide .imageSlideDispositioncarre {
   height: 20rem;
@@ -209,7 +244,7 @@ body#admin main .diapo {
 }
 body#admin main .diapo .imageDiapo {
   width: 12rem;
-  height: 8rem;
+  height: 10rem;
   border: solid 1px black;
   margin: 2rem;
 }
@@ -228,6 +263,24 @@ body#admin main .diapo .imageDiapo .imageDiapoImage .imageDiapoImagecarre {
 body#admin main .diapo .imageDiapo .imageDiapoImage .imageDiapoImageportrait {
   height: 5rem;
   width: 3rem;
+}
+body#admin main .diapo .imageDiapo .imageAction {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0.6rem;
+}
+body#admin main .diapo .imageDiapo .imageAction .imageActionButtonUpdate {
+  background-color: #aaaaaa;
+  border: solid 1px black;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+body#admin main .diapo .imageDiapo .imageAction .imageActionButtonDelete {
+  background-color: #aaaaaa;
+  border: solid 1px black;
+  padding: 0.3rem;
+  cursor: pointer;
 }
 
 .center {
@@ -295,6 +348,39 @@ body#admin main .diapo .imageDiapo .imageDiapoImage .imageDiapoImageportrait {
 .modale #modale-content #closeModale {
   text-align: center;
   width: 4rem;
+  background-color: #888888;
+  padding: 0.8rem;
+  cursor: pointer;
+  color: white;
+}
+.modale #modale-content .modalUpdateImage {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+.modale #modale-content .modalUpdateImage .imageDispopaysage {
+  height: 10rem;
+  width: 20rem;
+}
+.modale #modale-content .modalUpdateImage .imageDispocarre {
+  height: 10rem;
+  width: 10rem;
+}
+.modale #modale-content .modalUpdateImage .imageDispoportrait {
+  height: 10rem;
+  width: 6rem;
+}
+.modale #modale-content .modalUpdateImage input {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.modale #modale-content .modalUpdateImage img {
+  margin-top: 1.5rem;
+}
+.modale #modale-content .modalUpdateImage #updateImageButton {
+  margin-top: 1.5rem;
+  text-align: center;
+  width: 8rem;
   background-color: #888888;
   padding: 0.8rem;
   cursor: pointer;

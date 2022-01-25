@@ -47,6 +47,12 @@ if (isset($_GET['page']) or isset($_POST['page'])) {
 
     if ($page == "intro") {
 
+        if (isset($_GET['update_image_intro']) and isset($_GET['id']) and isset($_GET['slot'])) {
+            $idImageIntro=$_GET['id'];
+            $slot= "image".$_GET['slot']."_id";
+            $res = $conn->query("UPDATE intro SET ".$slot."='$idImageIntro'");
+        }
+
         if (isset($_POST['page'])) {
             $text_fr = filter_var ($_POST['text_fr'], FILTER_SANITIZE_STRING);
             $text_en = filter_var ($_POST['text_en'], FILTER_SANITIZE_STRING);
@@ -76,10 +82,20 @@ if (isset($_GET['page']) or isset($_POST['page'])) {
                  reponse3_nl='$rep3_nl', reponse4_nl='$rep4_nl'");
         }
 
-        $res = $conn->query("SELECT i.url, text_fr, text_en, text_nl, text2_fr, text2_en, text2_nl, question_fr, reponse1_fr, reponse2_fr, reponse3_fr, reponse4_fr,
-        question_en, reponse1_en, reponse2_en, reponse3_en, reponse4_en, question_nl, reponse1_nl, reponse2_nl, reponse3_nl, reponse4_nl FROM intro a, image i WHERE a.image_id=i.id");
+        $res = $conn->query("SELECT image1_id, image2_id, image3_id, image4_id, image5_id, image6_id, image7_id, image8_id, image9_id, image10_id, 
+        text_fr, text_en, text_nl, text2_fr, text2_en, text2_nl, question_fr, reponse1_fr, reponse2_fr, reponse3_fr, reponse4_fr,
+        question_en, reponse1_en, reponse2_en, reponse3_en, reponse4_en, question_nl, reponse1_nl, reponse2_nl, reponse3_nl, reponse4_nl FROM intro");
         $row = $res->fetch_assoc();
-        $url = $row ['url'];
+        $image1 = $row['image1_id'];
+        $image2 = $row['image2_id'];
+        $image3 = $row['image3_id'];
+        $image4 = $row['image4_id'];
+        $image5 = $row['image5_id'];
+        $image6 = $row['image6_id'];
+        $image7 = $row['image7_id'];
+        $image8 = $row['image8_id'];
+        $image9 = $row['image9_id'];
+        $image10 = $row['image10_id'];
         $text_fr = $row['text_fr'];
         $text_en = $row['text_en'];
         $text_nl = $row['text_nl'];
@@ -101,6 +117,20 @@ if (isset($_GET['page']) or isset($_POST['page'])) {
         $rep2_nl = $row['reponse2_nl'];
         $rep3_nl = $row['reponse3_nl'];
         $rep4_nl = $row['reponse4_nl'];
+        $res = $conn->query("SELECT id, url, disposition FROM image WHERE id='$image1' OR id='$image2' OR id='$image3' 
+             OR id='$image4' OR id='$image5' OR id='$image6' OR id='$image7' OR id='$image8' OR id='$image9' OR id='$image10'");
+        while ($donnees = $res->fetch_assoc()) {
+            if ($image1==$donnees['id']) { $url1=$donnees['url']; $disposition1=$donnees['disposition']; }
+            if ($image2==$donnees['id']) { $url2=$donnees['url']; $disposition2=$donnees['disposition']; }
+            if ($image3==$donnees['id']) { $url3=$donnees['url']; $disposition3=$donnees['disposition']; }
+            if ($image4==$donnees['id']) { $url4=$donnees['url']; $disposition4=$donnees['disposition']; }
+            if ($image5==$donnees['id']) { $url5=$donnees['url']; $disposition5=$donnees['disposition']; }
+            if ($image6==$donnees['id']) { $url6=$donnees['url']; $disposition6=$donnees['disposition']; }
+            if ($image7==$donnees['id']) { $url7=$donnees['url']; $disposition7=$donnees['disposition']; }
+            if ($image8==$donnees['id']) { $url8=$donnees['url']; $disposition8=$donnees['disposition']; }
+            if ($image9==$donnees['id']) { $url9=$donnees['url']; $disposition9=$donnees['disposition']; }
+            if ($image10==$donnees['id']) { $url10=$donnees['url']; $disposition10=$donnees['disposition']; }
+        }
     }
 
     if ($page=="s1" or $page=="s2" or $page=="s3" or $page=="s4" or $page=="s5" or $page=="s6" or $page=="s7" or $page=="s8" or $page=="s9" or $page=="s10" or $page=="s11") {
@@ -226,11 +256,74 @@ if (isset($page)) {
         if ($page=="intro") {
             ?>
             <div class="introduction">
-                <h2>Voici l'image que vous avez choisi pour l'introduction :</h2>
-                <img src="./assets/image/<?php echo $url; ?>" id="imageIntro"/>
-                <div id="changeImageIntro">
-                    Choisir une autre image
+                <h2>Voici les images que vous avez choisi pour la première partie de l'introduction :</h2>
+                <div class="containerImageIntro">
+                    <div class="containerOneImageIntro">
+                        <div class="containerImageIntroHeight"><img src="./assets/image/<?php echo $url1; ?>" class="imageIntroDisposition<?php echo $disposition1; ?>"/></div>
+                        <div class="changeImageIntro" id="updateImageIntro1">
+                            Choisir une autre image
+                        </div>
+                    </div>
+                    <div class="containerOneImageIntro">
+                        <div class="containerImageIntroHeight"><img src="./assets/image/<?php echo $url2; ?>" class="imageIntroDisposition<?php echo $disposition2; ?>"/></div>
+                        <div class="changeImageIntro" id="updateImageIntro2">
+                            Choisir une autre image
+                        </div>
+                    </div>
+                    <div class="containerOneImageIntro">
+                        <div class="containerImageIntroHeight"><img src="./assets/image/<?php echo $url3; ?>" class="imageIntroDisposition<?php echo $disposition3; ?>"/></div>
+                        <div class="changeImageIntro" id="updateImageIntro3">
+                            Choisir une autre image
+                        </div>
+                    </div>
+                    <div class="containerOneImageIntro">
+                        <div class="containerImageIntroHeight"><img src="./assets/image/<?php echo $url4; ?>" class="imageIntroDisposition<?php echo $disposition4; ?>"/></div>
+                        <div class="changeImageIntro" id="updateImageIntro4">
+                            Choisir une autre image
+                        </div>
+                    </div>
+                    <div class="containerOneImageIntro">
+                        <div class="containerImageIntroHeight"><img src="./assets/image/<?php echo $url5; ?>" class="imageIntroDisposition<?php echo $disposition5; ?>"/></div>
+                        <div class="changeImageIntro" id="updateImageIntro5">
+                            Choisir une autre image
+                        </div>
+                    </div>
                 </div>
+
+                <h2>Voici les images que vous avez choisi pour la deuxième partie de l'introduction :</h2>
+                <div class="containerImageIntro">
+                    <div class="containerOneImageIntro">
+                        <div class="containerImageIntroHeight"><img src="./assets/image/<?php echo $url6; ?>" class="imageIntroDisposition<?php echo $disposition6; ?>"/></div>
+                        <div class="changeImageIntro" id="updateImageIntro6">
+                            Choisir une autre image
+                        </div>
+                    </div>
+                    <div class="containerOneImageIntro">
+                        <div class="containerImageIntroHeight"><img src="./assets/image/<?php echo $url7; ?>" class="imageIntroDisposition<?php echo $disposition7; ?>"/></div>
+                        <div class="changeImageIntro" id="updateImageIntro7">
+                            Choisir une autre image
+                        </div>
+                    </div>
+                    <div class="containerOneImageIntro">
+                        <div class="containerImageIntroHeight"><img src="./assets/image/<?php echo $url8; ?>" class="imageIntroDisposition<?php echo $disposition8; ?>"/></div>
+                        <div class="changeImageIntro" id="updateImageIntro8">
+                            Choisir une autre image
+                        </div>
+                    </div>
+                    <div class="containerOneImageIntro">
+                        <div class="containerImageIntroHeight"><img src="./assets/image/<?php echo $url9; ?>" class="imageIntroDisposition<?php echo $disposition9; ?>"/></div>
+                        <div class="changeImageIntro" id="updateImageIntro9">
+                            Choisir une autre image
+                        </div>
+                    </div>
+                    <div class="containerOneImageIntro">
+                        <div class="containerImageIntroHeight"><img src="./assets/image/<?php echo $url10; ?>" class="imageIntroDisposition<?php echo $disposition10; ?>"/></div>
+                        <div class="changeImageIntro" id="updateImageIntro10">
+                            Choisir une autre image
+                        </div>
+                    </div>
+                </div>
+
                 <h2>Texte d'accompagnement partie 1 en français :</h2>
                 <textarea name="text_fr" id="fr"><?php echo $text_fr; ?></textarea>
                 <h2>Texte d'accompagnement partie 2 en français :</h2>
@@ -332,6 +425,10 @@ if (isset($page)) {
                 <div class="imageDiapoName"><?php echo $donnees['name']; ?></div>
                 <div class="imageDiapoDisposition"><?php echo $donnees['disposition']; ?></div>
                 <div class="imageDiapoImage"><img src="./assets/image/<?php echo $donnees['url']; ?>" class="imageDiapoImage<?php echo $donnees['disposition']; ?>"></div>
+                <div class="imageAction">
+                    <div class="imageActionButtonUpdate" id="updateImage<?php echo $donnees['id']; ?>">Modifier</div>
+                    <div class="imageActionButtonDelete">Supprimer</div>
+                </div>
             </div>
             <?php
             }
