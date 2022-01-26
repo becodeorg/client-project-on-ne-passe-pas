@@ -29,6 +29,7 @@ const MainSlide = () => {
 
         const db = axios.create({
             timeout: 2000,
+            headers: { 'Content-Type': 'application/json; charset=utf-8' },
             validateStatus: function (status) {
                 return status >= 200 && status < 300;
             },
@@ -36,7 +37,7 @@ const MainSlide = () => {
 
         db.get('http://localhost/client-project-on-ne-passe-pas/backend/api/intro.php', { cache: "reload" })
             .then((response) => {
-                console.log(response)
+                console.log(response.data)
                 if (introductionPosition === 1)
                     setImageSlider(response.data[0].carrousel1);
                 setIntroductionText(response.data[0].text_fr);
@@ -51,7 +52,7 @@ const MainSlide = () => {
             })
             .catch(err => console.log(err))
     }, [introductionPosition])
-    console.log(introductionQuizzReponse1, introductionQuizzReponse2, introductionQuizzReponse3, introductionQuizzReponse4)
+    console.log(introductionText)
 
     if (imageSlider && !introductionQuizz) {
         return (
