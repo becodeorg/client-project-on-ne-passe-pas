@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay } from 'swiper';
 import axios from "axios";
@@ -35,7 +36,7 @@ const MainSlide = () => {
 
         db.get('http://localhost/client-project-on-ne-passe-pas/backend/api/intro.php', { cache: "reload" })
             .then((response) => {
-                console.log(response.data)
+                console.log(response)
                 if (introductionPosition === 1)
                     setImageSlider(response.data[0].carrousel1);
                 setIntroductionText(response.data[0].text_fr);
@@ -82,16 +83,20 @@ const MainSlide = () => {
     }
     if (introductionQuizz && introductionPosition === 3) {
         return (
-            <main className='main-slides'>
-                <article className='quizz-slides'>
+            <main className='quizz-slides'>
+                <article className='quizz-placement'>
                     <h3>
                         {introductionQuizz}
                     </h3>
                     <div className="quizz">
-                        <button >{introductionQuizzReponse1}</button>
-                        <button >{introductionQuizzReponse2}</button>
-                        <button >{introductionQuizzReponse3}</button>
-                        <button >{introductionQuizzReponse4}</button>
+                        <button className="btn-quizz" onClick={() => {
+                            <Link to={'/Accueil'} />
+                        }}>
+                            {introductionQuizzReponse1}
+                        </button>
+                        <button className="btn-quizz" onClick={(e) => { e.target.style.backgroundColor = 'red' }}>{introductionQuizzReponse2}</button>
+                        <button className="btn-quizz" onClick={(e) => { e.target.style.backgroundColor = 'red' }}>{introductionQuizzReponse3}</button>
+                        <button className="btn-quizz" onClick={(e) => { e.target.style.backgroundColor = 'red' }}>{introductionQuizzReponse4}</button>
                     </div>
                 </article>
             </main>
@@ -100,9 +105,3 @@ const MainSlide = () => {
 };
 
 export default MainSlide;
-
-//introductionPosition +1
-
-/* if (3) {
-    <Link to...
-} */
