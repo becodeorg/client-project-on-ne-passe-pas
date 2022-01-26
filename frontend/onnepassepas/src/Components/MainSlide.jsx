@@ -9,6 +9,7 @@ import axios from "axios";
 const MainSlides = () => {
 
     const [slidePosition, setSlidePosition] = useState(1);
+    const [slideNumber, setSlideNumber] = useState(1)
     const [image, setImage] = useState([]);
     const [slideText, setSlideText] = useState('');
     const [slideQuizz, setSlideQuizz] = useState('');
@@ -22,10 +23,12 @@ const MainSlides = () => {
     const handleClose = () => setOpen(false);
 
     function changeStatePosition() {
-        if (slidePosition === 1)
-            setSlidePosition(2);
-        if (slidePosition === 2)
-            setSlidePosition(3)
+        setSlidePosition(slidePosition + 1)
+    }
+
+    function changeStateNumber() {
+        setSlideNumber(slideNumber + 1);
+        setSlidePosition(1);
     }
 
     const StyledModal = styled(ModalUnstyled)`
@@ -85,12 +88,12 @@ const MainSlides = () => {
             },
         });
 
-        db.get(`http://localhost/client-project-on-ne-passe-pas/backend/api/slide.php?slide=${slidePosition}`, { cache: "reload" })
+        db.get(`http://localhost/client-project-on-ne-passe-pas/backend/api/slide.php?slide=${slideNumber}`, { cache: "reload" })
             .then((response) => {
                 console.log(response.data)
                 setImage(response.data[0].image);
                 setSlideText(response.data[0].text_fr);
-                if (slidePosition === 3)
+                if (slidePosition === 2)
                     setSlideQuizz(response.data[0].question_fr);
                 setSlideQuizzReponse1(response.data[0].reponse1_fr);
                 setSlideQuizzReponse2(response.data[0].reponse2_fr);
@@ -98,7 +101,9 @@ const MainSlides = () => {
                 setSlideQuizzReponse4(response.data[0].reponse4_fr);
             })
             .catch(err => console.log(err))
-    }, [slidePosition])
+    }, [slideNumber, slidePosition])
+
+    console.log(slidePosition, slideNumber)
 
     if (image && !slideQuizz) {
         return (
@@ -114,7 +119,7 @@ const MainSlides = () => {
             </main>
         );
     }
-    if (slideQuizz && slidePosition === 3) {
+    if (slideQuizz && slidePosition === 2) {
         return (
             <main className='quizz-slides'>
                 <article className='quizz-placement'>
@@ -135,7 +140,7 @@ const MainSlides = () => {
                             <Box sx={style}>
                                 <h2 id="unstyled-modal-title">Bonne réponse !</h2>
                                 <p id="unstyled-modal-description">Cliquez sur le lien suivant pour accèder à la suite de l'application.</p>
-                                <Link to={'/Slides'} ><button type="button" style={nextBtn}>Suivant</button></Link>
+                                <button type="button" style={nextBtn} onClick={changeStateNumber}>Suivant</button>
                             </Box>
                         </StyledModal>
                         <button className="btn-quizz" onClick={(e) => { e.target.style.backgroundColor = 'red' }}>{slideQuizzReponse2}</button>
@@ -143,8 +148,11 @@ const MainSlides = () => {
                         <button className="btn-quizz" onClick={(e) => { e.target.style.backgroundColor = 'red' }}>{slideQuizzReponse4}</button>
                     </div>
                 </article>
-            </main>
+            </main >
         )
+    }
+    else {
+        return (<p>Loading...</p>)
     }
 }
 
