@@ -44,7 +44,7 @@ html {
             background-color: $rounded-border-color;
             border-radius: 0% 0% 50%;
             height: 6rem;
-            width: 15rem;
+            width: 100%;
             margin-top: -3rem;
 
             .flags-logo {
@@ -107,6 +107,7 @@ html {
             flex-wrap: wrap;
             justify-content: center;
             align-items: flex-start;
+            gap: 0.5rem;
             height: 100%;
             width: 100%;
 
@@ -123,22 +124,42 @@ html {
                 }
             }
 
+            .image-slide {
+
+                    box-shadow: $box-shadow-base;
+                    height: 12rem;
+                    margin-top: 0.5rem;
+                    text-align: center;
+    
+                    .swiper-image {
+                        width: 100%;
+                        max-height: auto;
+                    }
+                }
+
             .textzone-slides {
-                height: 18rem;
+                height: auto;
                 width: 90%;
                 background-color: $bg-color-fondu;
                 box-shadow: $box-shadow-base;
                 margin-bottom: 7rem;
+                
 
                 .text-slides {
                     text-align: justify;
                     padding: 0.5rem 0.5rem 0 0.5rem;
-                    font-size: 0.9rem;
+                    font-size: 0.8rem;
                 }
             }
 
             .next-slides {
                 margin-top: -7rem;
+                width: 5rem;
+                        height: 2.5rem;
+                        font-size: 1rem;
+                        border: none;
+                        background-color: $rounded-border-color;
+                
             }
 
         }
@@ -170,7 +191,7 @@ html {
                     .btn-quizz {
                         margin: 0.5rem;
                         width: 5rem;
-                        height: 2.5rem;
+                        height: 5rem;
                         font-size: 1rem;
                         border: none;
                         background-color: $rounded-border-color;
@@ -187,9 +208,7 @@ html {
             background-color: $rounded-border-color;
             border-radius: 50% 0% 0%;
             height: 6rem;
-            width: 15rem;
-            bottom: -3rem;
-            right: 0;
+            width: 100%;
 
             .flags-logo {
                 max-width: 35px;

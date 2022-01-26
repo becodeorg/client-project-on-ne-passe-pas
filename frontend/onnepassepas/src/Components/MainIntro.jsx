@@ -5,27 +5,30 @@ import SwiperCore, { Autoplay } from 'swiper';
 import { styled, Box } from '@mui/system';
 import ModalUnstyled from '@mui/base/ModalUnstyled';
 import axios from "axios";
+import 'swiper/css';
 
-const MainSlides = () => {
+SwiperCore.use([Autoplay]);
 
-    const [slidePosition, setSlidePosition] = useState(1);
-    const [image, setImage] = useState([]);
-    const [slideText, setSlideText] = useState('');
-    const [slideQuizz, setSlideQuizz] = useState('');
-    const [slideQuizzReponse1, setSlideQuizzReponse1] = useState('');
-    const [slideQuizzReponse2, setSlideQuizzReponse2] = useState('');
-    const [slideQuizzReponse3, setSlideQuizzReponse3] = useState('');
-    const [slideQuizzReponse4, setSlideQuizzReponse4] = useState('');
+const MainIntro = () => {
+
+    const [introductionPosition, setIntroductionPosition] = useState(1);
+    const [imageSlider, setImageSlider] = useState([]);
+    const [introductionText, setIntroductionText] = useState('');
+    const [introductionQuizz, setIntroductionQuizz] = useState('');
+    const [introductionQuizzReponse1, setIntroductionQuizzReponse1] = useState('');
+    const [introductionQuizzReponse2, setIntroductionQuizzReponse2] = useState('');
+    const [introductionQuizzReponse3, setIntroductionQuizzReponse3] = useState('');
+    const [introductionQuizzReponse4, setIntroductionQuizzReponse4] = useState('');
 
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
     function changeStatePosition() {
-        if (slidePosition === 1)
-            setSlidePosition(2);
-        if (slidePosition === 2)
-            setSlidePosition(3)
+        if (introductionPosition === 1)
+            setIntroductionPosition(2);
+        if (introductionPosition === 2)
+            setIntroductionPosition(3)
     }
 
     const StyledModal = styled(ModalUnstyled)`
@@ -85,45 +88,63 @@ const MainSlides = () => {
             },
         });
 
-        db.get(`http://localhost/client-project-on-ne-passe-pas/backend/api/slide.php?slide=${slidePosition}`, { cache: "reload" })
+        db.get('http://localhost/client-project-on-ne-passe-pas/backend/api/intro.php', { cache: "reload" })
             .then((response) => {
                 console.log(response.data)
-                setImage(response.data[0].image);
-                setSlideText(response.data[0].text_fr);
-                if (slidePosition === 3)
-                    setSlideQuizz(response.data[0].question_fr);
-                setSlideQuizzReponse1(response.data[0].reponse1_fr);
-                setSlideQuizzReponse2(response.data[0].reponse2_fr);
-                setSlideQuizzReponse3(response.data[0].reponse3_fr);
-                setSlideQuizzReponse4(response.data[0].reponse4_fr);
+                if (introductionPosition === 1)
+                    setImageSlider(response.data[0].carrousel1);
+                setIntroductionText(response.data[0].text_fr);
+                if (introductionPosition === 2)
+                    setImageSlider(response.data[0].carrousel2);
+                if (introductionPosition === 3)
+                    setIntroductionQuizz(response.data[0].question_fr);
+                setIntroductionQuizzReponse1(response.data[0].reponse1_fr);
+                setIntroductionQuizzReponse2(response.data[0].reponse2_fr);
+                setIntroductionQuizzReponse3(response.data[0].reponse3_fr);
+                setIntroductionQuizzReponse4(response.data[0].reponse4_fr);
             })
             .catch(err => console.log(err))
-    }, [slidePosition])
+    }, [introductionPosition])
+    console.log(introductionText)
 
-    if (image && !slideQuizz) {
+    if (imageSlider && !introductionQuizz) {
         return (
 
             <main className='main-slides'>
-                <img className="image-slide" src={image} alt="slide 1 pic" />
+                <div className='swiper'>
+                    <Swiper
+                        spaceBetween={50}
+                        slidesPerView={1}
+                        onSlideChange={() => console.log('slide change')}
+                        onSwiper={(swiper) => console.log(swiper)}
+                        autoplay={{
+                            "delay": 2500,
+                            "disableOnInteraction": false
+                        }}
+                    > {imageSlider.map((list) =>
+                        <SwiperSlide key={list.index}><img className="swiper-image" src={list.image} alt="on ne passe pas" /></SwiperSlide>
+                    )}
+                    </Swiper>
+                </div>
                 <article className='textzone-slides'>
                     <p className='text-slides'>
-                        {slideText}
+                        {introductionText}
                     </p>
                 </article>
                 <button onClick={changeStatePosition} className="next-slides">Suivant</button>
             </main>
         );
     }
-    if (slideQuizz && slidePosition === 3) {
+    if (introductionQuizz && introductionPosition === 3) {
         return (
             <main className='quizz-slides'>
                 <article className='quizz-placement'>
                     <h3>
-                        {slideQuizz}
+                        {introductionQuizz}
                     </h3>
                     <div className="quizz">
                         <button type='button' className="btn-quizz" onClick={handleOpen}>
-                            {slideQuizzReponse1}
+                            {introductionQuizzReponse1}
                         </button>
                         <StyledModal
                             aria-labelledby="unstyled-modal-title"
@@ -138,14 +159,14 @@ const MainSlides = () => {
                                 <Link to={'/Slides'} ><button type="button" style={nextBtn}>Suivant</button></Link>
                             </Box>
                         </StyledModal>
-                        <button className="btn-quizz" onClick={(e) => { e.target.style.backgroundColor = 'red' }}>{slideQuizzReponse2}</button>
-                        <button className="btn-quizz" onClick={(e) => { e.target.style.backgroundColor = 'red' }}>{slideQuizzReponse3}</button>
-                        <button className="btn-quizz" onClick={(e) => { e.target.style.backgroundColor = 'red' }}>{slideQuizzReponse4}</button>
+                        <button className="btn-quizz" onClick={(e) => { e.target.style.backgroundColor = 'red' }}>{introductionQuizzReponse2}</button>
+                        <button className="btn-quizz" onClick={(e) => { e.target.style.backgroundColor = 'red' }}>{introductionQuizzReponse3}</button>
+                        <button className="btn-quizz" onClick={(e) => { e.target.style.backgroundColor = 'red' }}>{introductionQuizzReponse4}</button>
                     </div>
                 </article>
             </main>
         )
     }
-}
+};
 
-export default MainSlides;
+export default MainIntro;

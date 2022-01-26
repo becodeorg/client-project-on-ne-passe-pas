@@ -52,7 +52,7 @@ html body .header-slides {
   background-color: #708468;
   border-radius: 0% 0% 50%;
   height: 6rem;
-  width: 15rem;
+  width: 100%;
   margin-top: -3rem;
 }
 
@@ -148,6 +148,7 @@ html body .main-slides {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  gap: 0.5rem;
   height: 100%;
   width: 100%;
 }
@@ -165,8 +166,21 @@ html body .main-slides .swiper .swiper-image {
   max-height: auto;
 }
 
+html body .main-slides .image-slide {
+  -webkit-box-shadow: -1px 6px 11px -4px rgba(0, 0, 0, 0.75);
+          box-shadow: -1px 6px 11px -4px rgba(0, 0, 0, 0.75);
+  height: 12rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+html body .main-slides .image-slide .swiper-image {
+  width: 100%;
+  max-height: auto;
+}
+
 html body .main-slides .textzone-slides {
-  height: 18rem;
+  height: auto;
   width: 90%;
   background-color: rgba(255, 255, 255, 0.6);
   -webkit-box-shadow: -1px 6px 11px -4px rgba(0, 0, 0, 0.75);
@@ -177,11 +191,16 @@ html body .main-slides .textzone-slides {
 html body .main-slides .textzone-slides .text-slides {
   text-align: justify;
   padding: 0.5rem 0.5rem 0 0.5rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 html body .main-slides .next-slides {
   margin-top: -7rem;
+  width: 5rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #708468;
 }
 
 html body .quizz-slides {
@@ -231,7 +250,7 @@ html body .quizz-slides .quizz-placement .quizz {
 html body .quizz-slides .quizz-placement .quizz .btn-quizz {
   margin: 0.5rem;
   width: 5rem;
-  height: 2.5rem;
+  height: 5rem;
   font-size: 1rem;
   border: none;
   background-color: #708468;
@@ -251,9 +270,7 @@ html body .footer-slides {
   background-color: #708468;
   border-radius: 50% 0% 0%;
   height: 6rem;
-  width: 15rem;
-  bottom: -3rem;
-  right: 0;
+  width: 100%;
 }
 
 html body .footer-slides .flags-logo {

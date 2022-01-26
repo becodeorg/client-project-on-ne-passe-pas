@@ -1,6 +1,6 @@
 import FooterSlides from "../../Components/FooterSlide";
 import HeaderSlides from "../../Components/HeaderSlides";
-import MainSlide from "../../Components/MainSlide";
+import MainIntro from "../../Components/MainIntro";
 
 
 const Introduction = () => {
@@ -10,7 +10,7 @@ const Introduction = () => {
     return (
         <>
             <HeaderSlides />
-            <MainSlide />
+            <MainIntro />
             <FooterSlides />
         </>
     )
