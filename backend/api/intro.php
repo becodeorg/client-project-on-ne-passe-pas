@@ -45,7 +45,7 @@ echo "{";
 echo "\"text_fr\":\"".$row['text_fr']."\",";
 echo "\"text_en\":\"".$row['text_en']."\",";
 echo "\"text_nl\":\"".$row['text_nl']."\",";
-echo "\"text2_fr\":\"".$row['text_fr']."\",";
+echo "\"text2_fr\":\"".$row['text2_fr']."\",";
 echo "\"text2_en\":\"".$row['text2_en']."\",";
 echo "\"text2_nl\":\"".$row['text2_nl']."\",";
 echo "\"question_fr\":\"".$row['question_fr']."\",";
