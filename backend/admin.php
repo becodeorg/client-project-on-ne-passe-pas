@@ -427,7 +427,7 @@ if (isset($page)) {
                 <div class="imageDiapoImage"><img src="./assets/image/<?php echo $donnees['url']; ?>" class="imageDiapoImage<?php echo $donnees['disposition']; ?>"></div>
                 <div class="imageAction">
                     <div class="imageActionButtonUpdate" id="updateImage<?php echo $donnees['id']; ?>">Modifier</div>
-                    <div class="imageActionButtonDelete">Supprimer</div>
+<!--                    <div class="imageActionButtonDelete">Supprimer</div>-->
                 </div>
             </div>
             <?php
