@@ -10,7 +10,7 @@ $row = $res->fetch_assoc();
 $link = $row['link_image'];
 
 $res = $conn->query("SELECT image1_id, image2_id, image3_id, image4_id, image5_id, image6_id, image7_id, image8_id, image9_id, image10_id,
-        text_fr, text_en, text_nl, question_fr, reponse1_fr, reponse2_fr, reponse3_fr, reponse4_fr, question_en, reponse1_en, reponse2_en, 
+        text_fr, text_en, text_nl, text2_fr, text2_en, text2_nl, question_fr, reponse1_fr, reponse2_fr, reponse3_fr, reponse4_fr, question_en, reponse1_en, reponse2_en, 
         reponse3_en, reponse4_en, question_nl, reponse1_nl, reponse2_nl, reponse3_nl, reponse4_nl FROM intro");
 $row = $res->fetch_assoc();
 
@@ -45,6 +45,9 @@ echo "{";
 echo "\"text_fr\":\"".$row['text_fr']."\",";
 echo "\"text_en\":\"".$row['text_en']."\",";
 echo "\"text_nl\":\"".$row['text_nl']."\",";
+echo "\"text2_fr\":\"".$row['text_fr']."\",";
+echo "\"text2_en\":\"".$row['text2_en']."\",";
+echo "\"text2_nl\":\"".$row['text2_nl']."\",";
 echo "\"question_fr\":\"".$row['question_fr']."\",";
 echo "\"reponse1_fr\":\"".$row['reponse1_fr']."\",";
 echo "\"reponse2_fr\":\"".$row['reponse2_fr']."\",";
