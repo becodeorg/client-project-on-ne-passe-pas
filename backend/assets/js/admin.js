@@ -45,10 +45,7 @@ function updateImage() {
     fetch("./assets/php/update_image_now.php", {cache: "reload", method: "POST", body: JSON.stringify(form)})
         .then(response => response.text())
         .then(saveData => {
-            console.log(saveData);
-            document.getElementById("modale").style.display="none";
-            load("./assets/php/image_update.php?id=" + saveData, "showImage");
-            document.getElementById("modale").style.display="flex";
+            window.location.href="admin.php?page=image";
         })
         .catch(err => console.log(err))
 }
