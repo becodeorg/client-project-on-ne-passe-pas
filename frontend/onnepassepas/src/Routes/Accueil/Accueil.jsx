@@ -38,7 +38,6 @@ const Accueil = () => {
         <div className="bg-image" style={bgStyle}>
             <HeaderAccueil />
             <MainAccueil />
-            <Link to="/Introduction" className='link'>Suite</Link>
         </div>
     )
 }

@@ -91,21 +91,25 @@ const MainIntro = () => {
         db.get('http://localhost/client-project-on-ne-passe-pas/backend/api/intro.php', { cache: "reload" })
             .then((response) => {
                 console.log(response.data)
-                if (introductionPosition === 1)
+                if (introductionPosition === 1) {
                     setImageSlider(response.data[0].carrousel1);
-                setIntroductionText(response.data[0].text_fr);
-                if (introductionPosition === 2)
+                    setIntroductionText(response.data[0].text_fr);
+                }
+                if (introductionPosition === 2) {
                     setImageSlider(response.data[0].carrousel2);
-                if (introductionPosition === 3)
+                    setIntroductionText(response.data[0].text2_fr);
+                }
+                if (introductionPosition === 3) {
                     setIntroductionQuizz(response.data[0].question_fr);
-                setIntroductionQuizzReponse1(response.data[0].reponse1_fr);
-                setIntroductionQuizzReponse2(response.data[0].reponse2_fr);
-                setIntroductionQuizzReponse3(response.data[0].reponse3_fr);
-                setIntroductionQuizzReponse4(response.data[0].reponse4_fr);
+                    setIntroductionQuizzReponse1(response.data[0].reponse1_fr);
+                    setIntroductionQuizzReponse2(response.data[0].reponse2_fr);
+                    setIntroductionQuizzReponse3(response.data[0].reponse3_fr);
+                    setIntroductionQuizzReponse4(response.data[0].reponse4_fr);
+                }
             })
             .catch(err => console.log(err))
     }, [introductionPosition])
-    console.log(introductionText)
+    console.log(introductionPosition, ' -------- ', introductionText)
 
     if (imageSlider && !introductionQuizz) {
         return (

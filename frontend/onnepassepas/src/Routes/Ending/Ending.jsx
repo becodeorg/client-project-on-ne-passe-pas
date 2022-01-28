@@ -1,15 +1,17 @@
 import HeaderSlides from "../../Components/HeaderSlides";
-import MainSlides from "../../Components/MainSlide";
+import MainEnding from "../../Components/MainEnding";
 
-const Slides = () => {
+
+const Ending = () => {
+
 
 
     return (
         <>
             <HeaderSlides />
-            <MainSlides />
+            <MainEnding />
         </>
     )
 }
 
-export default Slides;
+export default Ending;

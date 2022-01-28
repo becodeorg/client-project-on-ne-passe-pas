@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Autoplay } from 'swiper';
 import { styled, Box } from '@mui/system';
+import { Link } from "react-router-dom";
 import ModalUnstyled from '@mui/base/ModalUnstyled';
 import axios from "axios";
 
@@ -29,6 +27,8 @@ const MainSlides = () => {
     function changeStateNumber() {
         setSlideNumber(slideNumber + 1);
         setSlidePosition(1);
+        handleClose();
+
     }
 
     const StyledModal = styled(ModalUnstyled)`
@@ -90,22 +90,22 @@ const MainSlides = () => {
 
         db.get(`http://localhost/client-project-on-ne-passe-pas/backend/api/slide.php?slide=${slideNumber}`, { cache: "reload" })
             .then((response) => {
-                console.log(response.data)
                 setImage(response.data[0].image);
                 setSlideText(response.data[0].text_fr);
-                if (slidePosition === 2)
+                if (slidePosition === 2) {
                     setSlideQuizz(response.data[0].question_fr);
-                setSlideQuizzReponse1(response.data[0].reponse1_fr);
-                setSlideQuizzReponse2(response.data[0].reponse2_fr);
-                setSlideQuizzReponse3(response.data[0].reponse3_fr);
-                setSlideQuizzReponse4(response.data[0].reponse4_fr);
+                    setSlideQuizzReponse1(response.data[0].reponse1_fr);
+                    setSlideQuizzReponse2(response.data[0].reponse2_fr);
+                    setSlideQuizzReponse3(response.data[0].reponse3_fr);
+                    setSlideQuizzReponse4(response.data[0].reponse4_fr);
+                }
             })
             .catch(err => console.log(err))
     }, [slideNumber, slidePosition])
 
     console.log(slidePosition, slideNumber)
 
-    if (image && !slideQuizz) {
+    if (image && slidePosition === 1) {
         return (
 
             <main className='main-slides'>
@@ -119,7 +119,7 @@ const MainSlides = () => {
             </main>
         );
     }
-    if (slideQuizz && slidePosition === 2) {
+    if (slideQuizz && slideNumber !== 11) {
         return (
             <main className='quizz-slides'>
                 <article className='quizz-placement'>
@@ -141,6 +141,38 @@ const MainSlides = () => {
                                 <h2 id="unstyled-modal-title">Bonne réponse !</h2>
                                 <p id="unstyled-modal-description">Cliquez sur le lien suivant pour accèder à la suite de l'application.</p>
                                 <button type="button" style={nextBtn} onClick={changeStateNumber}>Suivant</button>
+                            </Box>
+                        </StyledModal>
+                        <button className="btn-quizz" onClick={(e) => { e.target.style.backgroundColor = 'red' }}>{slideQuizzReponse2}</button>
+                        <button className="btn-quizz" onClick={(e) => { e.target.style.backgroundColor = 'red' }}>{slideQuizzReponse3}</button>
+                        <button className="btn-quizz" onClick={(e) => { e.target.style.backgroundColor = 'red' }}>{slideQuizzReponse4}</button>
+                    </div>
+                </article>
+            </main >
+        )
+    }
+    if (slideNumber === 11 & slidePosition === 2) {
+        return (
+            <main className='quizz-slides'>
+                <article className='quizz-placement'>
+                    <h3>
+                        {slideQuizz}
+                    </h3>
+                    <div className="quizz">
+                        <button type='button' className="btn-quizz" onClick={handleOpen}>
+                            {slideQuizzReponse1}
+                        </button>
+                        <StyledModal
+                            aria-labelledby="unstyled-modal-title"
+                            aria-describedby="unstyled-modal-description"
+                            open={open}
+                            onClose={handleClose}
+                            BackdropComponent={Backdrop}
+                        >
+                            <Box sx={style}>
+                                <h2 id="unstyled-modal-title">Bonne réponse !</h2>
+                                <p id="unstyled-modal-description">Cliquez sur le lien suivant pour accèder à l'épreuve de fin.</p>
+                                <Link to='/Ending'><button type="button" style={nextBtn}>Suivant</button></Link>
                             </Box>
                         </StyledModal>
                         <button className="btn-quizz" onClick={(e) => { e.target.style.backgroundColor = 'red' }}>{slideQuizzReponse2}</button>

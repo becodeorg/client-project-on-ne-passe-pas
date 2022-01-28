@@ -1,5 +1,7 @@
 import logo from '../Images/Logo_onpp2.png';
 import QrContainer from './QRReader';
+import { Link } from 'react-router-dom';
+
 const MainAccueil = () => {
 
     return (
@@ -9,6 +11,8 @@ const MainAccueil = () => {
                 <img className='flags-logo' src={logo} alt="logo-app" />
                 <p>Site historique de Brûly-de-Pesches.</p>
             </section>
+
+            <Link to="/Introduction" className='link'>Suite</Link>
             <QrContainer />
         </main>
     )

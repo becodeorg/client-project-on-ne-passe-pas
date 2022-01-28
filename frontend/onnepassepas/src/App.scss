@@ -200,6 +200,44 @@ html {
             }
         }
 
+        .end-slide {
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            align-content: space-between;
+            height: 100%;
+            width: 100%;
+            gap: 0.5rem;
+
+            .p-container {
+                margin: 15rem 1rem 0 1rem;
+
+                .ending-p {
+                    text-align: justify;
+                    font-size: 1.2rem;
+                }
+            }
+
+            .ending-text {
+                text-align: justify;
+                margin: 12rem 1rem 0 1rem;
+                font-size: 1.2rem;
+            }
+             
+            .four-digit-code {
+
+                height: 4rem;
+                width: 4rem;
+                margin-top: 2rem;
+                font-size: 2rem;
+                text-align: center;
+
+            }
+        }
+
         .footer-slides {
             display: flex;
             justify-content: right;
