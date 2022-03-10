@@ -59,6 +59,8 @@ Comme le dirait un certain coach : *Ca sert à rien de réinventer la roue* .
 3. Ajouter la possibilités d'ajouter de nouvelles images via le panel admin.
 4. Vérifier que le scan du code QR fonctionne correctement.
 5. Mise en place de la PWA.
+6. Implémenter le changement de langue au clic sur un drapeau de l'écran d'accueil (TOUT est déjà traduit, il faut juste stocker la ref du click dans un state et l'envoyer aux différents fetchs)
+
 ## Crédits
 
 - Backend : @Salukimakingcode
