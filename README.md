@@ -32,11 +32,35 @@ Nous avons utilisés React.js, React Router, axios, materialUI, swiper et PHP.
 Plus d'infos ci-dessous.
 ## Backend
 
-Intégralement fait en PHP, vous trouverez les différents points API (pour l'accueil, l'intro et les slides) dans `backend/api`. 
+Intégralement fait en [PHP](https://www.php.net/), vous trouverez les différents points API (pour l'accueil, l'intro et les slides) dans `backend/api`. 
 
 La DB est faite via PHPMyAdmin et trouvable à la racine du projet, il vous suffira de l'inclure dans votre PHPMyAdmin.
 Pour accèder au panel administrateur utilisez le lien suivant : `http://localhost/client-project-on-ne-passe-pas/backend/`.
 ## Frontend
+
+Intégralement fait en [React.js](https://fr.reactjs.org/), comme c'était notre premier projet avec ce framework/librairy le code n'est pas réellement optimisés (i.e : gros composants) mais décomposés un maximum avec nos compétences de première semaine sur React, mais il est clair et facilement compréhensible.
+
+- Pour le routing nous avons utilisés [React Router](https://reactrouter.com/).
+- Pour les modals [MaterialUI](https://mui.com/).
+- Pour les sliders d'images [Swiper](https://swiperjs.com/react).
+- Pour les fetchs du back [axios](https://axios-http.com/docs/intro).
+- Pour le QR code [React-qr-scanner](https://www.npmjs.com/package/react-qr-scanner).
 ## Pourquoi ces choix ?
+
+Pour React.js, le choix était facile. On était deux sur ce projet, et on voulait tous les deux un projet concret sur lequel tester React. Was that simple :)
+
+Pour les libs : 
+
+Comme le dirait un certain coach exceptionnel : *Ca sert à rien de réinventer la roue* .
 ## Que reste-t'il à faire ?
+
+1. Mettre en forme les textes dans la DB (nl2br).
+2. Demander à la cliente qu'elle transmette les **4** couleurs nécessaires à implémenter.
+3. Ajouter la possibilités d'ajouter de nouvelles images via le panel admin.
+4. Vérifier que le scan du code QR fonctionne correctement.
+5. Mise en place de la PWA.
 ## Crédits
+
+- Backend : @Salukimakingcode
+- Frontend: @Freyaln
+- Coach référent : Corentin
