@@ -51,7 +51,7 @@ Pour React.js, le choix était facile. On était deux sur ce projet, et on voula
 
 Pour les libs : 
 
-Comme le dirait un certain coach exceptionnel : *Ca sert à rien de réinventer la roue* .
+Comme le dirait un certain coach : *Ca sert à rien de réinventer la roue* .
 ## Que reste-t'il à faire ?
 
 1. Mettre en forme les textes dans la DB (nl2br).
