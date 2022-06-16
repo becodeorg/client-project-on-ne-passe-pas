@@ -1,5 +1,17 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import QrReader from 'react-qr-scanner';
+
+import styled from 'styled-components';
+import colors from '../Style/colors';
+
+const QrWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+`
 
 class QrContainer extends Component {
     constructor(props) {
@@ -23,29 +35,32 @@ class QrContainer extends Component {
     render() {
 
         const previewStyle = {
-            height: '10rem',
-            width: '10rem',
+            width: '20rem',
+            // border: '10px solid #fff',
+            // boxShadow : '0px 10px 10px rgba(0, 0, 0, 0.25)'
         };
 
         const textStyle = {
-            fontSize: '1rem',
+            marginTop: '20px',
+            fontSize: '0.9rem',
             textAlign: 'center',
-            marginTop: '6rem',
-            color: 'white'
+            color: '#E2D4D2',
+            fontFamily: "'Helvetica', Arial, sans-serif",
+            fontWeight: '200',
         }
 
         return (
             <React.Fragment>
-                <section className="QR-zone">
+                <QrWrapper>
                     <QrReader
                         delay={100}
                         style={previewStyle}
                         onError={this.handleError}
                         onScan={this.handleScan} />
-                </section>
-                <p style={textStyle}>
-                    {this.state.result}
-                </p>
+                    <p style={textStyle}>
+                        {this.state.result}
+                    </p>
+                </QrWrapper>
             </React.Fragment>
         )
     }
